@@ -1,0 +1,58 @@
+
+def suma_cuadrados(n):
+    pass
+
+def factorial(n):
+    pass
+
+def suma_naturales(n):
+    pass
+
+while True:
+    print("\n===== MENÚ =====")
+    print("1. Suma de cuadrados hasta n (Mi ejercicio)")
+    print("2. Calcular Factorial")
+    print("3. Suma de números naturales hasta n")
+    print("0. Salir")
+
+    opcion = int(input("Seleccione una opción: "))
+
+    if opcion == 1:
+        num = int(input("Ingrese un número: "))
+        print("La suma de cuadrados es:", suma_cuadrados(num))
+
+    elif opcion == 2:
+        num = int(input("Ingrese un número: "))
+        print("El factorial es:", factorial(num))
+
+    elif opcion == 3:
+        num = int(input("Ingrese un número: "))
+        print("La suma de naturales es:", suma_naturales(num))
+
+    elif opcion == 0:
+        print("Saliendo del programa...")
+        break
+
+    else:
+        print("Opción inválida. Intente nuevamente.")
+
+
+def suma_cuadrados(n):
+    if n == 1:
+        return 1
+    else:
+        return n*n + suma_cuadrados(n - 1)
+
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+def suma_naturales(n):
+    if n == 1:
+        return 1
+    else:
+        return n + suma_naturales(n - 1)
