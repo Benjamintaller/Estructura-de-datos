@@ -1,0 +1,16 @@
+#include <iostream>
+#include "Triangulo.h"
+
+using namespace std;
+
+int main()
+{
+    float base, altura;
+    Triangulo triangulito; // crea un objeto de la clase
+    cout << "ingresar la base: ";
+    cin >> base;
+    cout << "ingresar la altura: ";
+    cin >> altura;
+    cout << "El area es: " << triangulito.calculararea(base, altura);
+    return 0;
+}
