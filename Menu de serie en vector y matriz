@@ -1,0 +1,99 @@
+#include <iostream>
+#define MAX 10
+
+using namespace std;
+
+void serie(int n);
+void cargar(int vec[], int n);
+void mostrar(int vec[], int n);
+void cargarMatriz(int mat[MAX][MAX], int m, int n, int tam);
+
+int main()
+{
+    int opcion, n, vec[MAX], m, n2, mat[MAX][MAX];
+    do {
+        cout << "MENU" << endl;
+        cout << "1. Serie recursiva" << endl;
+        cout << "2. Cargar vector" << endl;
+        cout << "3. Cargar matriz" << endl;
+        cout << "0. Salir" << endl;
+        cin >> opcion;
+        switch (opcion) {
+        case 1: {
+            cout << "Coloque los elementos de la serie: ";
+            cin >> n;
+            serie(n);
+        }
+              break;
+        case 2: {
+            cout << "Coloque los elementos de la serie: ";
+            cin >> n;
+            cargar(vec, n);
+        }
+              break;
+        case 3: {
+            cout << "Coloque los elementos de la serie: ";
+            cin >> n;
+            mostrar(vec, n);
+            cout << "Coloque el tamano de la matriz: " << endl;
+            cout << "Fila: ";
+            cin >> m;
+            cout << "Columna: ";
+            cin >> n2;
+            cargarMatriz(mat, m, n2, n);
+        }
+              break;
+        case 0: cout << "Salir" << endl;
+            break;
+        default: cout << "Error" << endl;
+        }
+    } while (opcion != 0);
+}
+void serie(int n) {
+    if (n == 0) {
+        cout << "1";
+        return;
+    }
+    else {
+        serie(n - 1); 
+        cout << 3 * n - 2 << " ";
+    }
+}
+
+void cargar(int vec[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese elemento [" << i << "]: ";
+        cin >> vec[i];
+    }
+}
+
+void mostrar(int vec[], int n) {
+    cout << "Vector: ";
+    for (int i = 0; i < n; i++) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
+}
+
+void cargarMatriz(int mat[MAX][MAX], int m, int n, int tam) {
+    int k = 0;
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (k < tam) {
+                mat[i][j] = k + 1; 
+                k++;
+            }
+            else {
+                mat[i][j] = 0; 
+            }
+        }
+    }
+    cout << "Matriz:" << endl;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << mat[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
