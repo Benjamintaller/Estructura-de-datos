@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+
+
+void cargar(char v[], int &n);
+void mostrar(char v[], int n);
+void sinEspacios(char v[], int n);
+
+int main()
+{
+    char v[100];
+    int n;
+    int op;
+
+    do
+    {
+        cout << "\n--- MENU ---\n";
+        cout << "1. Cargar texto\n";
+        cout << "2. Mostrar texto\n";
+        cout << "3. Eliminar espacios\n";
+        cout << "4. Salir\n";
+        cout << "Opcion: ";
+        cin >> op;
+
+        cin.ignore(); // limpiar buffer
+
+        switch(op)
+        {
+            case 1:
+                cargar(v,n);
+                break;
+
+            case 2:
+                mostrar(v,n);
+                break;
+
+            case 3:
+                sinEspacios(v,n);
+                cout << "Espacios eliminados\n";
+                break;
+        }
+
+    } while(op != 4);
+
+    return 0;
+}
+
+
+void cargar(char v[], int &n)
+{
+    cout << "Ingrese texto: ";
+    cin.getline(v,100);
+
+    n = 0;
+    while(v[n] != '\0')
+        n++;
+}
+
+void mostrar(char v[], int n)
+{
+    cout << "Texto: ";
+    for(int i=0;i<n;i++)
+        cout << v[i];
+}
+
+
+void sinEspacios(char v[], int n)
+{
+    int j = 0;
+
+    for(int i=0;i<n;i++)
+    {
+        if(v[i] != ' ')
+        {
+            v[j] = v[i];
+            j++;
+        }
+    }
+
+    v[j] = '\0';
+}
